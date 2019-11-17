@@ -1,0 +1,56 @@
+@model IEnumerable<GerenciadorAcademico.Models.TarefaModel>
+
+@{
+	ViewBag.Title = "Página Inicial";
+}
+
+<h2>Sistema para Gerenciar Tarefas Acadêmicas</h2>
+
+<p>
+	@Html.ActionLink("Clique aqui para registrar uma nova tarefa acadêmica", "Create")
+</p>
+<table class="table" id="tbl_tarefas">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Tarefa)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Descricao)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Categoria)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Data)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Tarefa)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Descricao)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Categoria)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Data)
+			</td>
+			<td>
+				@Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+				@Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+			</td>
+		</tr>
+	}
+</table>
+<p>
+	@using (Html.BeginForm("Home", "Tarefa"))
+	{
+		<button type="submit">Clique aqui para voltar para página inicial</button>
+	}
+</p>

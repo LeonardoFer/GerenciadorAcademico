@@ -1,0 +1,56 @@
+@model GerenciadorAcademico.Models.TarefaModel
+
+@{
+	ViewBag.Title = "Editar uma tarefa acadêmica";
+}
+
+<h2>Deletar uma tarefa acadêmica:</h2>
+
+<h3>Você tem certeza que quer deletar esta tarefa?</h3>
+<div>
+	<h4>É nesta página que você pode deletar um tarefa acadêmica.</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Tarefa)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Tarefa)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Descricao)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Descricao)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Categoria)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Categoria)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Data)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Data)
+		</dd>
+
+	</dl>
+
+	@using (Html.BeginForm()) {
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Confirmar" class="btn btn-default" /> |
+			@Html.ActionLink("Clique aqui para voltar", "Index")
+		</div>
+	}
+</div>
